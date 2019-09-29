@@ -135,3 +135,30 @@ go deeper
 
 ![](https://raw.githubusercontent.com/ffflora/data-science-notes/master/archived-pics/open-course/xception.png)
 
+---
+
+## Topic Analysis and Data Exploration
+
+### facial Expression recognition 
+
+- surprise 
+- angry
+- happy
+- sad
+- neutral 
+
+#### Difficulties
+
+1. **人脸姿态**、 **环境光照**
+2. 表情的强度
+
+不是一个简单的分类问题。
+
+评估指标：ACC and AUC
+
+#### Problems about the Data:
+
+1. images are not typical facial images; some have only one person, some have more than one people
+2. The size of images are irregular;
+3. data size is very large: ~GB
+
