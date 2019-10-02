@@ -137,9 +137,11 @@ go deeper
 
 ---
 
-## Topic Analysis and Data Exploration
+## Understanding the Contest and Data Exploration
 
-### facial Expression recognition 
+### Facial Expression Recognition 
+
+In this contest, there are five facial expressions:
 
 - surprise 
 - angry
@@ -161,4 +163,90 @@ go deeper
 1. images are not typical facial images; some have only one person, some have more than one people
 2. The size of images are irregular;
 3. data size is very large: ~GB
+
+#### Data Storage:
+
+1. 5 folders, each folder for a type of images (not a good idea)
+2. 2 folders, one for images, the other for csv files. 
+
+
+
+#### EDA
+
+two ways:
+
+1. Linux shell 
+
+   ```shell
+   # bash 
+   ls -l | grep '^-' | wc -l
+   # -l 输入当前目录下的详细信息，并且以行的方式显示
+   # channel，把上一个命令的输出当作下一个命令的输入
+   # grep 做正则匹配
+   # wc: word count -l by lines
+   
+   #script
+   for i in 'ls';
+   do
+   echo "file:${i}";
+   ls -l "${i}" } | grep '^-' | w -l;
+   
+   ```
+
+2. python 
+
+   ```python
+   import os
+   import numpy as np
+   
+   list_dir = os.listdir('./')
+   for path in list_dir:
+       if os.path.list_dir:
+           list_jpg = os.listdir(path)
+           print(len(np.unique(list_jpg)))
+   ```
+
+   
+
+### Tools
+
+- Python
+- OpenCV (load and read image)
+- Tendorflow and Keras
+- tqdm, glob(进阶版os), face-regc
+
+### Pipeline
+
+#### Preprocessing
+
+1. crop the images for the faces 
+   - DL
+   - traditional way (方便、速度快): opencv, face-regc
+2. zoom in/out and crop the images 
+   - the size of the faces are about 1:1, 避免形变
+3. RGB  --> Gray images; keep the consistency of the type of the images.
+   - because color doesn't matter
+4. save in the memory 
+
+step 2-4 could be done in openCV
+
+#### Modeling
+
+1. divide for training set and test set （divide for address is enough)
+
+2. load data (生成器):
+
+   - 每一次随机加载一部分放进模型进行训练
+   - 数据增强（有随机性，比如旋转）
+
+3. deep learning modeling
+
+   1. network structure
+
+   2. design for the loss function
+   3. optimization method
+
+4. Train the model
+
+5. test the model
 
