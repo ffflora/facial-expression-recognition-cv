@@ -250,3 +250,18 @@ step 2-4 could be done in openCV
 
 5. test the model
 
+---
+
+## Tools
+
+### Tensorflow vs Keras
+
+Tensorflow is written by C++, 底层计算
+
+Keras is written by Python, high-level API, 不负责底层的计算
+
+```python
+from tensorflow.python import keras
+import tensorflow as tf
+```
+
