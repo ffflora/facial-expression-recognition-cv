@@ -265,3 +265,28 @@ from tensorflow.python import keras
 import tensorflow as tf
 ```
 
+Check the `basic tensorflow and keras` file all the detailed info.
+
+#### OpenCV
+
+```python
+import cv2
+# read img
+img = cv2.imread('xxx.jpg') #default image type is BGR, need to convert to RGB or other format
+# convert to gray img
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# resize
+img = cv2.resize(img,(256,256))
+# draw a rectangle frame
+# (x,y) left top corner
+# (x+w,y+h) right bottom corner 
+#  (0,255,0) RGB/color
+# 2: 粗度
+cv2.rectangle(img,(x,y),(x+w,y+h), (0,255,0),2)
+
+# show
+cv2.imshow('img',img)
+# write to file
+cv2.imwrite('img.png',img)
+```
+
